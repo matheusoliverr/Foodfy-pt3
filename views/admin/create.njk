@@ -1,0 +1,50 @@
+{% extends "admin/layouts.njk" %}
+
+{% block content %}
+    <main class="admin-main input">
+
+        <form method="POST" action="/admin/recipes" class="recipe-form">
+
+            <div>
+                <h1>Criando receita</h1>
+                
+                <div class="form-buttons">
+                    <button type="hidden" class="edit-button">Editar receita</button>
+                    <button type="submit">Salvar receita</button>
+                </div>
+            </div>
+
+            {% include "admin/fields.njk" %}
+
+            <div class="input-area ingredients">
+                <h3>Ingredientes</h3>
+                <div class="ingredients-area">
+                    <div class="ingredients-input">
+                        <input type="text" name="ingredients[]" value="{{ingredient}}">
+                    </div>
+                </div>
+                <button type="button" class="add-ingredients">Adicionar novo ingrediente</button>
+            </div>
+
+
+            <div class="input-area preparation">
+                <h3>Modo de preparo</h3>
+                <div class="preparation-area">
+                    <div class="preparation-input">
+                        <input type="text" name="preparation" value="{{prep}}">
+                    </div>
+                </div>
+                <button type="button" class="add-preparation">Adicionar novo passo</button>
+            </div>
+
+
+            <div class="input-area">
+                <h3>Informações adicionais</h3>
+                <input class="last-input" type="text" name="information" value="">
+            </div>
+
+        </form>
+
+    </main>
+
+{% endblock %}
